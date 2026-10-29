@@ -1,0 +1,452 @@
+
+:root {
+    --rouge: #c90020;
+    --rouge-fonce: #850015;
+    --rouge-clair: #f01e36;
+    --or: #f2c14e;
+    --or-clair: #ffe39a;
+    --noir: #160006;
+    --blanc: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--rouge);
+    color: var(--blanc);
+}
+
+/* EN-TÊTE */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--rouge-fonce);
+    border-bottom: 3px solid var(--or);
+    box-shadow: 0 4px 18px rgba(0,0,0,.3);
+}
+
+.header-principal {
+    padding: 18px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--blanc);
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--or);
+}
+
+/* BOUTONS RACCOURCIS */
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--blanc);
+    border: 1px solid var(--or);
+    background: transparent;
+    padding: 10px 14px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: .25s;
+}
+
+.navigation a:hover,
+.navigation a:focus {
+    background: var(--or);
+    color: var(--rouge-fonce);
+}
+
+.navigation a.accueil {
+    background: var(--or);
+    color: var(--rouge-fonce);
+}
+
+/* BANNIÈRE */
+
+.hero {
+    min-height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(133,0,21,.94),
+            rgba(201,0,32,.82),
+            rgba(133,0,21,.93)
+        ),
+        url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+    border-bottom: 5px solid var(--or);
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid var(--or);
+    color: var(--or);
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin: 24px 0;
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.1;
+}
+
+.hero h1 span {
+    color: var(--or);
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.decoration {
+    width: 90px;
+    height: 4px;
+    background: var(--or);
+    margin: 22px auto;
+}
+
+/* INTRODUCTION AU MENU */
+
+.menu {
+    max-width: 1150px;
+    margin: auto;
+    padding: 55px 25px;
+}
+
+.titre-menu {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titre-menu h2 {
+    font-size: clamp(27px, 4vw, 40px);
+}
+
+.titre-menu h2 span {
+    color: var(--or);
+}
+
+.titre-menu p {
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+/* CATÉGORIES */
+
+.categorie {
+    margin-bottom: 60px;
+    scroll-margin-top: 150px;
+}
+
+.titre-categorie {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.titre-categorie h3 {
+    color: var(--or);
+    font-size: 25px;
+    white-space: nowrap;
+}
+
+.trait {
+    flex: 1;
+    height: 2px;
+    background: var(--or);
+}
+
+/* DEUX PLATS PAR LIGNE */
+
+.grille-produits {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* CARTES */
+
+.produit {
+    background: var(--rouge-fonce);
+    border: 2px solid var(--or);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.produit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
+.image-box {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+    border-bottom: 4px solid var(--or);
+    background: var(--noir);
+}
+
+.image-box img {
+    display: block;
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    transition: transform .4s;
+}
+
+.produit:hover .image-box img {
+    transform: scale(1.04);
+}
+
+.agrandir {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: var(--or);
+    color: var(--rouge-fonce);
+    padding: 9px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.details {
+    padding: 22px;
+}
+
+.details h4 {
+    font-size: 21px;
+    margin-bottom: 12px;
+    color: var(--or);
+}
+
+.details p {
+    color: #fff0f0;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 48px;
+}
+
+.bas-carte {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(242,193,78,.5);
+}
+
+.prix {
+    color: var(--or);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* VISIONNEUSE */
+
+.visionneuse {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(35,0,8,.97);
+}
+
+.visionneuse.active {
+    display: flex;
+}
+
+.contenu-visionneuse {
+    width: 100%;
+    max-width: 950px;
+    text-align: center;
+}
+
+.contenu-visionneuse img {
+    display: block;
+    max-width: 100%;
+    max-height: 72vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: auto;
+    border: 3px solid var(--or);
+    border-radius: 8px;
+}
+
+.contenu-visionneuse h3 {
+    color: var(--or);
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.contenu-visionneuse p {
+    margin-top: 10px;
+}
+
+.fermer {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--or);
+    border-radius: 50%;
+    background: var(--rouge);
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* PIED DE PAGE */
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    background: var(--rouge-fonce);
+    border-top: 4px solid var(--or);
+    line-height: 2;
+}
+
+footer h3 {
+    color: var(--or);
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+
+footer p {
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+    .header-principal {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-principal {
+        padding: 15px 10px;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .navigation {
+        gap: 7px;
+    }
+
+    .navigation a {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 310px;
+        padding: 40px 15px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .menu {
+        padding: 40px 12px;
+    }
+
+    /* Deux images par ligne, même sur téléphone */
+    .grille-produits {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .image-box img {
+        height: 155px;
+    }
+
+    .details {
+        padding: 12px;
+    }
+
+    .details h4 {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .details p {
+        font-size: 12px;
+        line-height: 1.6;
+        min-height: 60px;
+    }
+
+    .prix {
+        font-size: 15px;
+    }
+
+    .titre-categorie h3 {
+        font-size: 18px;
+    }
+
+    .agrandir {
+        font-size: 10px;
+        padding: 6px 8px;
+        right: 5px;
+        bottom: 5px;
+    }
+
+    .visionneuse {
+        padding: 12px;
+    }
+
+    .contenu-visionneuse img {
+        max-height: 65vh;
+    }
+}
